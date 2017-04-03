@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-02T23:44:13-04:00</updated><id>/</id><title>Daixk</title><subtitle>Describe your website here.</subtitle><entry><title>Jekyll环境</title><link href="/Jekyll/" rel="alternate" type="text/html" title="Jekyll环境" /><published>2017-04-02T00:00:00-04:00</published><updated>2017-04-02T00:00:00-04:00</updated><id>/Jekyll</id><content type="html" xml:base="/Jekyll/">&lt;p&gt;记录一下 Jekyll 环境在 ubuntu14.04 下的安装。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-03T00:22:53-04:00</updated><id>/</id><title>Daixk</title><subtitle>Describe your website here.</subtitle><entry><title>Jekyll环境</title><link href="/Jekyll/" rel="alternate" type="text/html" title="Jekyll环境" /><published>2017-04-02T00:00:00-04:00</published><updated>2017-04-02T00:00:00-04:00</updated><id>/Jekyll</id><content type="html" xml:base="/Jekyll/">&lt;p&gt;记录一下 Jekyll 环境在 ubuntu14.04 下的安装。&lt;/p&gt;
 &lt;p&gt;
 前言：
 由于 jekyll 是由 Ruby 编写，第一步自然是安装 Ruby.
@@ -62,4 +62,8 @@ https://jekyllthemes.io/&lt;/br&gt;</content><category term="Jekyll" /><summary>
 
 
 1.安装 rvm
-$ curl -L https://get.rvm.io | bash -s stable</summary></entry><entry><title>Hello Blog</title><link href="/%E5%8D%A0%E4%BD%8D/" rel="alternate" type="text/html" title="Hello Blog" /><published>2017-04-01T00:00:00-04:00</published><updated>2017-04-01T00:00:00-04:00</updated><id>/占位</id><content type="html" xml:base="/%E5%8D%A0%E4%BD%8D/"></content><category term="历史" /><summary></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="{&quot;feature&quot;=&gt;nil}" /></entry></feed>
+$ curl -L https://get.rvm.io | bash -s stable</summary></entry><entry><title>Helloword</title><link href="/HelloWord/" rel="alternate" type="text/html" title="Helloword" /><published>2017-04-01T00:00:00-04:00</published><updated>2017-04-01T00:00:00-04:00</updated><id>/HelloWord</id><content type="html" xml:base="/HelloWord/">&lt;h2&gt;Helloword&lt;/h2&gt;
+&lt;p&gt;我的第一篇文章&lt;/p&gt;
+&lt;p&gt;01 Apr 2017&lt;/p&gt;</content><summary>Helloword
+我的第一篇文章
+01 Apr 2017</summary></entry><entry><title>Hello Blog</title><link href="/%E5%8D%A0%E4%BD%8D/" rel="alternate" type="text/html" title="Hello Blog" /><published>2017-04-01T00:00:00-04:00</published><updated>2017-04-01T00:00:00-04:00</updated><id>/占位</id><content type="html" xml:base="/%E5%8D%A0%E4%BD%8D/"></content><category term="历史" /><summary></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="{&quot;feature&quot;=&gt;nil}" /></entry></feed>
