@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-02T23:44:13-04:00</updated><id>/</id><title>Daixk</title><subtitle>Describe your website here.</subtitle><entry><title>Jekyll环境</title><link href="/Jekyll/" rel="alternate" type="text/html" title="Jekyll环境" /><published>2017-04-02T00:00:00-04:00</published><updated>2017-04-02T00:00:00-04:00</updated><id>/Jekyll</id><content type="html" xml:base="/Jekyll/">&lt;p&gt;记录一下 Jekyll 环境在 ubuntu14.04 下的安装。&lt;/p&gt;
+&lt;p&gt;
+前言：
+由于 jekyll 是由 Ruby 编写，第一步自然是安装 Ruby.
+网上许多方法都是直接 apt-get install ruby，这样安装的是1.9.3版本，Jekyll 3.x 需要 Ruby&gt;=2.0 以上才能运行，
+这点在 jekyll 官网有说明http://jekyllrb.com/docs/installation/（中文官网没有说明这一点）,
+而 ubuntu 直接使用 apt-get 安装 ruby2.0 的话，需要运行ruby2.0而不是ruby，的确可以通过 ln -sl 链接修改默认，
+但是这样后续安装 jekyll 还是会报错，也不推介使用apt安装jekyll; 这里我使用 rvm 安装 ruby; 跟 nvm 安装nodejs一样道理。
+&lt;/p&gt;
+&lt;p&gt;
+1.安装 rvm
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;curl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rvm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;io&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stable&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+安装好后需要 $ source ~/.rvm/scripts/rvm 每次开机都需要连接一下。
+&lt;/p&gt;
+
+2.修改rvm使用国内镜像源，速度会提高很多.
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ruby_url=https://cache.ruby-china.org/pub/ruby&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/.rvm/use&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+参考RVM官网：http://ruby-china.org/wiki/rvm-guide&lt;/br&gt;
+使用 rvm list known 查看可安装的 ruby 版本&lt;/br&gt;
+eg：&lt;/br&gt;
+    # MRI Rubies&lt;/br&gt;
+    [ruby-]1.8.6[-p420]&lt;/br&gt;
+    [ruby-]1.8.7[-head] # security released on head&lt;/br&gt;
+    [ruby-]1.9.1[-p431]&lt;/br&gt;
+    [ruby-]1.9.2[-p330]&lt;/br&gt;
+    [ruby-]1.9.3[-p551]&lt;/br&gt;
+    [ruby-]2.0.0[-p648]&lt;/br&gt;
+    [ruby-]2.1[.10]&lt;/br&gt;
+    [ruby-]2.2[.6]&lt;/br&gt;
+    [ruby-]2.3[.3]&lt;/br&gt;
+    [ruby-]2.4[.0]&lt;/br&gt;
+    ruby-head&lt;/br&gt;
+
+使用 $ rvm install 版本号 安装ruby&lt;/br&gt;
+
+修改默认的使用的ruby版本&lt;/br&gt;
+$ rvm 版本号 --default&lt;/br&gt;
+
+查看ruby版本&lt;/br&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;revision&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;49005&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x86_64&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linux&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+查看gem版本&lt;/br&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+接下来就可以按照jekyll官网说的使用gem安装jekyll。&lt;/br&gt;
+
+参考链接：&lt;/br&gt;
+http://blog.csdn.net/jaketseng/article/details/8892568&lt;/br&gt;
+http://ruby-china.org/wiki/rvm-guide&lt;/br&gt;
+http://jekyllrb.com/docs/installation/&lt;/br&gt;
+&lt;/br&gt;
+Jekyll模板：&lt;/br&gt;
+https://jekyllthemes.io/&lt;/br&gt;</content><category term="Jekyll" /><summary>记录一下 Jekyll 环境在 ubuntu14.04 下的安装。
+
+前言：
+由于 jekyll 是由 Ruby 编写，第一步自然是安装 Ruby.
+网上许多方法都是直接 apt-get install ruby，这样安装的是1.9.3版本，Jekyll 3.x 需要 Ruby&gt;=2.0 以上才能运行，
+这点在 jekyll 官网有说明http://jekyllrb.com/docs/installation/（中文官网没有说明这一点）,
+而 ubuntu 直接使用 apt-get 安装 ruby2.0 的话，需要运行ruby2.0而不是ruby，的确可以通过 ln -sl 链接修改默认，
+但是这样后续安装 jekyll 还是会报错，也不推介使用apt安装jekyll; 这里我使用 rvm 安装 ruby; 跟 nvm 安装nodejs一样道理。
+
+
+1.安装 rvm
+$ curl -L https://get.rvm.io | bash -s stable</summary></entry><entry><title>Hello Blog</title><link href="/%E5%8D%A0%E4%BD%8D/" rel="alternate" type="text/html" title="Hello Blog" /><published>2017-04-01T00:00:00-04:00</published><updated>2017-04-01T00:00:00-04:00</updated><id>/占位</id><content type="html" xml:base="/%E5%8D%A0%E4%BD%8D/"></content><category term="历史" /><summary></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="{&quot;feature&quot;=&gt;nil}" /></entry></feed>
