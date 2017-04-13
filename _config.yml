@@ -7,6 +7,7 @@ words_per_minute: 200
 # When testing locally leave blank or use http://localhost:4000
 url:
 
+excerpt_separator: ""
 # Owner/author information
 owner:
   name:           DAIXK

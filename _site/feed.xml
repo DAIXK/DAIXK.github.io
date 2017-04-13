@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-03T00:27:09-04:00</updated><id>/</id><title>Daixk</title><subtitle>Describe your website here.</subtitle><entry><title>Jekyll环境</title><link href="/Jekyll/" rel="alternate" type="text/html" title="Jekyll环境" /><published>2017-04-02T00:00:00-04:00</published><updated>2017-04-02T00:00:00-04:00</updated><id>/Jekyll</id><content type="html" xml:base="/Jekyll/">&lt;p&gt;记录一下 Jekyll 环境在 ubuntu14.04 下的安装。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-13T05:10:23-04:00</updated><id>/</id><title>Daixk</title><subtitle>Describe your website here.</subtitle><entry><title>selenium + phantomjs 登录爬虫</title><link href="/PhantomJs/" rel="alternate" type="text/html" title="selenium + phantomjs 登录爬虫" /><published>2017-04-13T00:00:00-04:00</published><updated>2017-04-13T00:00:00-04:00</updated><id>/PhantomJs</id><content type="html" xml:base="/PhantomJs/">&lt;p&gt;
+    phantomjs 可以动态获取到需要爬取的数据，例如动态登录获取cookies,
+&lt;/p&gt;
+这里用 aso100 关键词分析这个网站为例&lt;/br&gt;
+eg:&lt;/br&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/br&amp;gt;
+def get_cookies():&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;https://aso100.com/account/signin&#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/br&amp;gt;
+    /&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;service_args&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;可以传入&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;phantomjs&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;的参数，这里是&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ssl&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;认证&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/br&amp;gt;
+    drive = webdriver.PhantomJS(service_args=[&#39;--ssl-protocol=any&#39;])&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;drive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/br&amp;gt;
+    drive.find_element_by_id(&#39;username&#39;).send_keys(&#39;yourname&#39;)&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;drive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find_element_by_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;password&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;send_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;yourpassword&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/br&amp;gt;
+    /&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;截图登录界面，获取到验证码&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/br&amp;gt;
+    drive.save_screenshot(&#39;aso100.png&#39;)&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;请输入验证码&amp;gt;&amp;gt;&amp;gt;&amp;gt;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/br&amp;gt;
+    drive.find_element_by_id(&#39;code&#39;).send_keys(code)&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;drive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find_element_by_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;submit&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/br&amp;gt;
+    /&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;这一步很重要，需要等待&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;phantomjs&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;加载完再去取得&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cookies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/br&amp;gt;
+    time.sleep(5)&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cookie_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;drive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get_cookies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/br&amp;gt;
+    cookie_dict = {}&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cookie_list&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&amp;lt;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;cookie_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cookie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;name&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cookie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;value&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/br&amp;gt;
+
+    drive.quit()&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# print(cookie_dict)&amp;lt;/br&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cookie_dict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/br&amp;gt;
+    &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+获得了cookies之后，在通过requrests爬取其他页面就简单了。</content><category term="Python" /></entry><entry><title>Jekyll环境</title><link href="/Jekyll/" rel="alternate" type="text/html" title="Jekyll环境" /><published>2017-04-02T00:00:00-04:00</published><updated>2017-04-02T00:00:00-04:00</updated><id>/Jekyll</id><content type="html" xml:base="/Jekyll/">&lt;p&gt;记录一下 Jekyll 环境在 ubuntu14.04 下的安装。&lt;/p&gt;
 &lt;p&gt;
 前言：
 由于 jekyll 是由 Ruby 编写，第一步自然是安装 Ruby.
@@ -51,19 +81,4 @@ http://ruby-china.org/wiki/rvm-guide&lt;/br&gt;
 http://jekyllrb.com/docs/installation/&lt;/br&gt;
 &lt;/br&gt;
 Jekyll模板：&lt;/br&gt;
-https://jekyllthemes.io/&lt;/br&gt;</content><category term="Jekyll" /><summary>记录一下 Jekyll 环境在 ubuntu14.04 下的安装。
-
-前言：
-由于 jekyll 是由 Ruby 编写，第一步自然是安装 Ruby.
-网上许多方法都是直接 apt-get install ruby，这样安装的是1.9.3版本，Jekyll 3.x 需要 Ruby&gt;=2.0 以上才能运行，
-这点在 jekyll 官网有说明http://jekyllrb.com/docs/installation/（中文官网没有说明这一点）,
-而 ubuntu 直接使用 apt-get 安装 ruby2.0 的话，需要运行ruby2.0而不是ruby，的确可以通过 ln -sl 链接修改默认，
-但是这样后续安装 jekyll 还是会报错，也不推介使用apt安装jekyll; 这里我使用 rvm 安装 ruby; 跟 nvm 安装nodejs一样道理。
-
-
-1.安装 rvm
-$ curl -L https://get.rvm.io | bash -s stable</summary></entry><entry><title>Helloword</title><link href="/HelloWord/" rel="alternate" type="text/html" title="Helloword" /><published>2017-04-01T00:00:00-04:00</published><updated>2017-04-01T00:00:00-04:00</updated><id>/HelloWord</id><content type="html" xml:base="/HelloWord/">&lt;h2&gt;Helloword&lt;/h2&gt;
-&lt;p&gt;我的第一篇文章&lt;/p&gt;
-&lt;p&gt;01 Apr 2017&lt;/p&gt;</content><summary>Helloword
-我的第一篇文章
-01 Apr 2017</summary></entry><entry><title>Hello Blog</title><link href="/%E5%8D%A0%E4%BD%8D/" rel="alternate" type="text/html" title="Hello Blog" /><published>2017-04-01T00:00:00-04:00</published><updated>2017-04-01T00:00:00-04:00</updated><id>/占位</id><content type="html" xml:base="/%E5%8D%A0%E4%BD%8D/"></content><category term="历史" /><summary></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="{&quot;feature&quot;=&gt;nil}" /></entry></feed>
+https://jekyllthemes.io/&lt;/br&gt;</content><category term="Jekyll" /></entry><entry><title>Hello Blog</title><link href="/%E5%8D%A0%E4%BD%8D/" rel="alternate" type="text/html" title="Hello Blog" /><published>2017-04-01T00:00:00-04:00</published><updated>2017-04-01T00:00:00-04:00</updated><id>/占位</id><content type="html" xml:base="/%E5%8D%A0%E4%BD%8D/"></content><category term="历史" /><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="{&quot;feature&quot;=&gt;nil}" /></entry></feed>
