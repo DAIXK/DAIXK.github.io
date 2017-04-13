@@ -17,17 +17,17 @@ eg:</br>
 from selenium import webdriver</br>
 def get_cookies():</br>
     url = 'https://aso100.com/account/signin'</br>
-    //service_args 可以传入phantomjs 的参数，这里是ssl认证</br>
+    #service_args 可以传入phantomjs 的参数，这里是ssl认证</br>
     drive = webdriver.PhantomJS(service_args=['--ssl-protocol=any'])</br>
     drive.get(url)</br>
     drive.find_element_by_id('username').send_keys('yourname')</br>
     drive.find_element_by_id('password').send_keys('yourpassword')</br>
-    //截图登录界面，获取到验证码</br>
+    #截图登录界面，获取到验证码</br>
     drive.save_screenshot('aso100.png')</br>
     code = input('请输入验证码>>>>')</br>
     drive.find_element_by_id('code').send_keys(code)</br>
     drive.find_element_by_id('submit').click()</br>
-    //这一步很重要，需要等待phantomjs 加载完再去取得cookies</br>
+    #这一步很重要，需要等待phantomjs 加载完再去取得cookies</br>
     time.sleep(5)</br>
     cookie_list = drive.get_cookies()</br>
     cookie_dict = {}</br>
