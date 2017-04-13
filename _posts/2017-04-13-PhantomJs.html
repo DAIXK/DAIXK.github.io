@@ -14,29 +14,29 @@ feature:
 这里用 aso100 关键词分析这个网站为例</br>
 eg:</br>
 {% highlight ruby %}
-from selenium import webdriver</br>
-def get_cookies():</br>
-    url = 'https://aso100.com/account/signin'</br>
-    #service_args 可以传入phantomjs 的参数，这里是ssl认证</br>
-    drive = webdriver.PhantomJS(service_args=['--ssl-protocol=any'])</br>
-    drive.get(url)</br>
-    drive.find_element_by_id('username').send_keys('yourname')</br>
-    drive.find_element_by_id('password').send_keys('yourpassword')</br>
-    #截图登录界面，获取到验证码</br>
-    drive.save_screenshot('aso100.png')</br>
-    code = input('请输入验证码>>>>')</br>
-    drive.find_element_by_id('code').send_keys(code)</br>
-    drive.find_element_by_id('submit').click()</br>
-    #这一步很重要，需要等待phantomjs 加载完再去取得cookies</br>
-    time.sleep(5)</br>
-    cookie_list = drive.get_cookies()</br>
-    cookie_dict = {}</br>
-    for cookie in cookie_list:</br>
-        cookie_dict[cookie['name']] = cookie['value']</br>
+from selenium import webdriver
+def get_cookies():
+    url = 'https://aso100.com/account/signin'
+    #service_args 可以传入phantomjs 的参数，这里是ssl认证
+    drive = webdriver.PhantomJS(service_args=['--ssl-protocol=any'])
+    drive.get(url)
+    drive.find_element_by_id('username').send_keys('yourname')
+    drive.find_element_by_id('password').send_keys('yourpassword')
+    #截图登录界面，获取到验证码
+    drive.save_screenshot('aso100.png')
+    code = input('请输入验证码>>>>')
+    drive.find_element_by_id('code').send_keys(code)
+    drive.find_element_by_id('submit').click()
+    #这一步很重要，需要等待phantomjs 加载完再去取得cookies
+    time.sleep(5)
+    cookie_list = drive.get_cookies()
+    cookie_dict = {}
+    for cookie in cookie_list:
+        cookie_dict[cookie['name']] = cookie['value']
 
-    drive.quit()</br>
-    # print(cookie_dict)</br>
-    return cookie_dict</br>
+    drive.quit()
+    # print(cookie_dict)
+    return cookie_dict
     {% endhighlight %}
 
 获得了cookies之后，在通过requrests爬取其他页面就简单了。
